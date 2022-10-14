@@ -1,21 +1,21 @@
-const userId = "76561198086326146";
-fetch('https://new.scoresaber.com/api/player/'+userId+'/basic')
-        .then(response => response.json())
-        .then(data => {
-            let playerId = data.playerInfo.playerId;
-            let playerCountry = data.playerInfo.country;
-            let playerGlobalRank = data.playerInfo.rank;
-            let playerCountryRank = data.playerInfo.countryRank;
-            let avatar = data.playerInfo.avatar;
-            if (data.playerInfo.avatar == "/images/oculus.png") {
-                document.getElementById("PlayerImage").src = "https://new.scoresaber.com/api/static/avatars/oculus.png";
-            } else {
+const userId = "76561198086326146"; //Set the user ID. You can make this check for a URL paramter if you want, so you don't have to change it in the code, if you want to change the ID.
+fetch('https://new.scoresaber.com/api/player/'+userId+'/basic') //Fetch the data from the /basic endpoint
+        .then(response => response.json()) //Parse the response as JSON
+        .then(data => { //Do something with the data
+            let playerId = data.playerInfo.playerId; //Gets the userID of the user
+            let playerCountry = data.playerInfo.country; //Gets the country - Used for country-flags on the user-icon on the website.
+            let playerGlobalRank = data.playerInfo.rank; //Gets the players Global-rank
+            let playerCountryRank = data.playerInfo.countryRank; //Gets the players Country-rank
+            let playerPP = data.playerInfo.pp; //Gets the players PP
+            let avatar = data.playerInfo.avatar;  //Gets the players avatar
+            if (data.playerInfo.avatar == "/images/oculus.png") { //Here we check if the user is an Oculus user, and if they are, slap the Oculus-picture on them.
+                document.getElementById("PlayerImage").src = "https://new.scoresaber.com/api/static/avatars/oculus.png"; 
+            } else { //Else we just use the link that the API gives us.
                 document.getElementById("PlayerImage").src = "https://new.scoresaber.com" + avatar;
-				
             }
-			document.getElementById("PlayerFlag").src = "https://flagicons.lipis.dev/flags/4x3/" + playerCountry.toLowerCase() + ".svg";
-            document.getElementById("PlayerName").innerText = data.playerInfo.playerName;
-            document.getElementById("PlayerRank").innerText = '#' + data.playerInfo.rank + ' Global | #' + data.playerInfo.countryRank + ' ' + playerCountry;
-            document.getElementById("PlayerPP").innerText = data.playerInfo.pp + 'PP';
-            document.getElementById("PlayerContainer").style.opacity = "1";
-        });
+			document.getElementById("PlayerFlag").src = "https://flagicons.lipis.dev/flags/4x3/" + playerCountry.toLowerCase() + ".svg"; //This is just used to show a country-flag in the lower right hand corner of the user-image
+            document.getElementById("PlayerName").innerText = data.playerInfo.playerName; //Here we set the players name in the HTML element
+            document.getElementById("PlayerRank").innerText = '#' + playerGlobalRank + ' Global | #' + playerCountryRank + ' ' + playerCountry; //Here we set the players ranks + country in the HTML element
+            document.getElementById("PlayerPP").innerText = playerPP + 'PP'; //Here we set the players PP in the HTML element
+            document.getElementById("PlayerContainer").style.opacity = "1"; //Here we set the opacity of the player-container to 1, so it fades in.
+        }); //End of the /basic endpoint fetch
