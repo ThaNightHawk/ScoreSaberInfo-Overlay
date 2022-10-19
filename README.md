@@ -3,7 +3,7 @@
 How to setup:
 - Download the source
 - Unpack into a folder of you choice
-- Change the ´userID´ on `line 1` in `logic.js`
+- Change the `userID` on `line 1` in `logic.js`
 - Create browser-source in OBS that points to the index.html file
 
 Done correctly, you should now see [this](https://i.imgur.com/apgxHDa.png) in OBS.
