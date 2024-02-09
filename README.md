@@ -8,5 +8,5 @@ How to setup:
 
 Done correctly, you should now see [this](https://i.imgur.com/apgxHDa.png) in OBS.
 
-If you don't want to host it yourself, feel free to use the prehosted version: `https://api.danesaber.cc/u/?u=76561198086326146`
+If you don't want to host it yourself, feel free to use the prehosted version: `https://api.hawk.quest/u/?u=76561198086326146`
 Simply just change `76561198086326146` to your own ScoreSaber ID, and put that link into a browser-source in OBS.
