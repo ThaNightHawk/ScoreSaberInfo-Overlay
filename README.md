@@ -1,3 +1,7 @@
+# Discontinued
+
+Umbra made changes to the ScoreSaber API a long time ago, that stopped client-side requests to it, thus breaking the overlay.
+
 # ScoreSaberInfo-Overlay
 
 How to setup:
